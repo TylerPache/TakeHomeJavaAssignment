@@ -37,4 +37,14 @@ public class QueriesController {
         map.put("remaining", query1.getRemaining());
         return map;
     }
+
+    @PostMapping("/reset")
+    public Map<String, Integer> queryReset() {
+        Map<String, Integer> map = new HashMap<>();
+        query1.reset();
+        map.put("total", query1.getTotal());
+        map.put("remaining", query1.getRemaining());
+        return map;
+    }
+
 }

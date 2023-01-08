@@ -3,8 +3,8 @@ package com.example.restservice;
 public class Queries {
 
     private int total;
-    private int remaining;
     private int quota = 1000;
+    private int remaining = quota;
     private int value;
     private int excess;
 
@@ -18,6 +18,12 @@ public class Queries {
         if(remaining < quota ){
             excess = total - quota;
         }
+    }
+
+    public void reset(){
+        this.total = 0;
+        this.quota += 1000;
+        this.remaining = quota;
     }
 
     public int getTotal() {
