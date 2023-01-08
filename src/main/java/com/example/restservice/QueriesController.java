@@ -3,6 +3,7 @@ package com.example.restservice;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,8 +30,11 @@ public class QueriesController {
         return map;
     }
 
-/*    @GetMapping("/consume")
-    public Queries query(){
-        return new Queries();
-    }*/
+    @GetMapping("/consume")
+    public Map<String, Integer> query(){
+        Map<String, Integer> map = new HashMap<>();
+        map.put("total", query1.getTotal());
+        map.put("remaining", query1.getRemaining());
+        return map;
+    }
 }
